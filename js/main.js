@@ -14,7 +14,7 @@
 const numberIntroducedUser = document.querySelector('.js-number-introduced-user');
 const btnTry = document.querySelector('.js-btn-try');
 const hints = document.querySelector('.js-hints');
-const numberTries = document.querySelector('.js-number-tries');
+const numberOfTries = document.querySelector('.js-number-of-tries');
 
 // FUNCION
 
@@ -22,14 +22,39 @@ function getRandomNumber(max) {
   return Math.ceil(Math.random() * max); 
 } 
 const randomNumber = getRandomNumber(100);
-//console.log(randomNumber)
+console.log(randomNumber)
+
+
+function inputNumberIntroduced() {
+    const inputValue = parseInt(numberIntroducedUser.value);
+
+    if(inputValue > 100 || inputValue < 1) {
+        hints.innerHTML = 'El número debe estar entre 1 y 100';
+    } else if (inputValue === randomNumber) {
+        hints.innerHTML = 'Has ganado campeona!!!';
+    } else if (inputValue > randomNumber) {
+       hints.innerHTML = 'Demasiado alto';
+    } else {
+        hints.innerHTML =  'Demasiado bajo';
+    }
+
+}
+
+//function sumNumberOfTries() {
+  //  const sumTries = 
+
+//}
+
 
 // FUNCION *MANEJADORA DEL EVENTO "CLICK-->HANDLECLICK" SOBRE EL BOTON "PRUEBA"
 function handleClickBtnTry(event) {
     event.preventDefault();
+    inputNumberIntroduced();
+    //sumNumberOfTries();
+
+    
     //console.log('working?');
     
-    //getRandomNumber()
 }
 //EVENTOS
 btnTry.addEventListener( 'click', handleClickBtnTry )
