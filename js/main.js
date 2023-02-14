@@ -17,7 +17,6 @@ const hints = document.querySelector('.js-hints');
 const numberOfTries = document.querySelector('.js-number-of-tries');
 
 // FUNCION
-
 function getRandomNumber(max) { 
   return Math.ceil(Math.random() * max); 
 } 
@@ -37,24 +36,25 @@ function inputNumberIntroduced() {
     } else {
         hints.innerHTML =  'Demasiado bajo';
     }
-
 }
 
+
+let sumTries = 0;
 function sumNumberOfTries() {
-    sumTries = ++;
-    numberOfTries.innerHTML = `Numero de intentos:  ${sumTries}`;
+    sumTries++;
+    numberOfTries.innerHTML = `Numero de intentos:${sumTries}`;
 }
-const sumTries = 0;
+
 
 // FUNCION *MANEJADORA DEL EVENTO "CLICK-->HANDLECLICK" SOBRE EL BOTON "PRUEBA"
 function handleClickBtnTry(event) {
     event.preventDefault();
     inputNumberIntroduced();
-    //sumNumberOfTries();
-
-    
+    sumNumberOfTries();
     //console.log('working?');
     
 }
+
+
 //EVENTOS
 btnTry.addEventListener( 'click', handleClickBtnTry )
