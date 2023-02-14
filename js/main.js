@@ -40,11 +40,11 @@ function inputNumberIntroduced() {
 
 }
 
-//function sumNumberOfTries() {
-  //  const sumTries = 
-
-//}
-
+function sumNumberOfTries() {
+    sumTries = ++;
+    numberOfTries.innerHTML = `Numero de intentos:  ${sumTries}`;
+}
+const sumTries = 0;
 
 // FUNCION *MANEJADORA DEL EVENTO "CLICK-->HANDLECLICK" SOBRE EL BOTON "PRUEBA"
 function handleClickBtnTry(event) {
