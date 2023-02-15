@@ -45,14 +45,14 @@
 }
 
 .hints {
-    width: 75vw;
+    width: 50%;
     border: solid 1px grey;
     padding: 5px;
     margin-bottom: 7px;
    
 }
 .number-of-tries {
-    width: 75vw;
+    width: 50%;
     border: solid 1px gray;
     padding: 5px;
     
