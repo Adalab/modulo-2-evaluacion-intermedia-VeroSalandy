@@ -16,6 +16,9 @@ const btnTry = document.querySelector('.js-btn-try');
 const hints = document.querySelector('.js-hints');
 const numberOfTries = document.querySelector('.js-number-of-tries');
 
+let sumTries = 0;
+
+
 // FUNCION
 function getRandomNumber(max) { 
   return Math.ceil(Math.random() * max); 
@@ -24,25 +27,32 @@ const randomNumber = getRandomNumber(100);
 console.log(randomNumber)
 
 
+function renderHintsMsj(msj) {
+    hints.innerHTML = msj;
+}
+
+
 function inputNumberIntroduced() {
     const inputValue = parseInt(numberIntroducedUser.value);
 
-    if(inputValue > 100 || inputValue < 1) {
-        hints.innerHTML = 'El número debe estar entre 1 y 100';
+    if (inputValue === '' || isNaN(inputValue)) {
+       renderHintsMsj ('ERROR, debe introducir un numero entre 1 y 100');
+    } else if(inputValue > 100 || inputValue < 1) {
+       renderHintsMsj ('El número debe estar entre 1 y 100');
     } else if (inputValue === randomNumber) {
-        hints.innerHTML = 'Has ganado campeona!!!';
+        renderHintsMsj ('Has ganado campeona!!!');
     } else if (inputValue > randomNumber) {
-       hints.innerHTML = 'Demasiado alto';
+       renderHintsMsj ('Demasiado alto');
     } else {
-        hints.innerHTML =  'Demasiado bajo';
+        renderHintsMsj ('Demasiado bajo');
     }
 }
 
 
-let sumTries = 0;
+
 function sumNumberOfTries() {
     sumTries++;
-    numberOfTries.innerHTML = `Numero de intentos:${sumTries}`;
+    numberOfTries.innerHTML = `Numero de intentos: ${sumTries}`;
 }
 
 
@@ -50,9 +60,7 @@ function sumNumberOfTries() {
 function handleClickBtnTry(event) {
     event.preventDefault();
     inputNumberIntroduced();
-    sumNumberOfTries();
-    //console.log('working?');
-    
+    sumNumberOfTries();   
 }
 
 
